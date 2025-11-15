@@ -157,7 +157,7 @@
                         <svg class="w-8 h-8 text-jojo-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM7 8V4a2 2 0 012-2h6a2 2 0 012 2v4M5 19h14a2 2 0 002-2v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2z"></path></svg>
                     </span>
                     <h3 class="text-xl font-extrabold mb-2 text-jojo-text">Founder's Commitment</h3>
-                    <p class="text-gray-600">Founded by JO, who genuinely loves clean, organized spaces and ensures that eye for detail is in every job.</p>
+                    <p class="text-gray-600">Founded by JO, who genuinely loves clean, organized spaces and ensures that that eye for detail is in every job.</p>
                 </div>
             </div>
         </section>
@@ -247,7 +247,7 @@
                         
 <div class="flex space-x-0.5">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10  15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
                             <svg class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
@@ -329,13 +329,17 @@
                                   class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300"></textarea>
                     </div>
 
-                    <button type="submit"
+                    <button type="submit" id="submit-button"
                             class="w-full px-6 py-4 text-xl font-extrabold text-white bg-jojo-primary rounded-xl hover:bg-jojo-dark transition duration-300 transform hover:scale-[1.01] shadow-xl shadow-jojo-primary/50 disabled:opacity-50">
                         Send Inquiry
                     </button>
                     
 <div id="success-message" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-xl font-medium text-center border border-green-300" role="alert">
                         Success! Your message has been sent. We'll be in touch shortly.
+                    </div>
+                    
+<div id="error-message" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-xl font-medium text-center border border-red-300" role="alert">
+                        An error occurred while sending your message. Please try again or call us.
                     </div>
                 </form>
             </div>
@@ -370,40 +374,80 @@
 
     
 <script>
-        // Function to handle the form submission (currently a mock)
-        function handleFormSubmission(event) {
-            event.preventDefault(); // Stop the default form submit
-            const form = document.getElementById('contact-form');
-            const successMessage = document.getElementById('success-message');
-            const submitButton = form.querySelector('button[type="submit"]');
+        // *** CONFIGURATION: REPLACE THIS URL with your Pipedream HTTP source URL ***
+        const PIPEDREAM_ENDPOINT = "https://eowtvnsohadwb4t.m.pipedream.net"; 
 
-            // Save original button text
+        const form = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        // Helper function to show/hide messages
+        function showMessage(element, isError = false) {
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            element.classList.remove('hidden');
+            
+            if (!isError) {
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    element.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // Function to handle the form submission using Pipedream
+        async function handleFormSubmission(event) {
+            event.preventDefault(); 
+            
+            // Clear previous messages
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+
             const originalText = submitButton.textContent;
             
             // Show loading state
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
 
-            // This is currently a mock submission. To actually save the data, 
-            // we would need to add Firebase/Firestore code here.
-            setTimeout(() => {
-                // Show success message
-                successMessage.classList.remove('hidden');
-                successMessage.classList.add('animate-pulse'); // Add a small animation
+            try {
+                // 1. Gather form data
+                const formData = new FormData(form);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                
+                // 2. Send data to Pipedream endpoint
+                const response = await fetch(PIPEDREAM_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Pipedream doesn't strictly require API keys via header 
+                        // for its HTTP source, but check your configuration if needed.
+                    },
+                    body: JSON.stringify(data),
+                });
 
-                // Reset form fields
-                form.reset();
+                // 3. Handle response
+                if (response.ok) {
+                    showMessage(successMessage);
+                    form.reset();
+                } else {
+                    // Log error details for debugging
+                    console.error('Pipedream submission failed with status:', response.status);
+                    console.error('Response text:', await response.text());
+                    showMessage(errorMessage, true);
+                }
 
+            } catch (error) {
+                console.error('Network or fetch error:', error);
+                showMessage(errorMessage, true);
+            } finally {
                 // Reset button state
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.add('hidden');
-                    successMessage.classList.remove('animate-pulse');
-                }, 5000);
-            }, 1500);
+            }
         }
 
         // Script for mobile menu toggle
