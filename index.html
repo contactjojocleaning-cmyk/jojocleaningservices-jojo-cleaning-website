@@ -6,7 +6,6 @@
     
     <title>JOJO Cleaning Services | The Full Cleaning Experience</title> 
     
-    <!-- CRITICAL: FAVICON / TAB LOGO - Using the full, verified file path -->
     <link rel="icon" type="image/png" href="/uploaded:image_66718f.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,24 +55,19 @@
 <body class="bg-jojo-soft font-sans text-jojo-text">
 
     
-    <!-- TOP BAR / HEADER (Frozen/Sticky) -->
     <header class="bg-jojo-light shadow-lg sticky top-0 z-20 header-fixed">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
             
             <div class="flex items-center space-x-3">
                 
-                <!-- NEW TEXT-BASED LOGO (Emoji + Text) for guaranteed visibility -->
-                <!-- THIS IS THE FIX: Using text instead of the broken image link -->
-                <span class="text-3xl hidden sm:inline-block">✨</span>
-                <span class="text-xl sm:text-3xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
-
-                <!-- HIDDEN IMAGE TAG with FALLBACK (in case image ever resolves) -->
                 <img src="/uploaded:image_66718f.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4" 
                      alt="JOJO Cleaning Logo" 
-                     style="display:none;" 
-                     onerror="this.style.display='none';"
-                     class="h-8 w-8 object-contain">
-            </div>
+                     class="h-8 w-8 object-contain hidden sm:inline-block">
+                
+                
+                <span class="text-xl sm:text-3xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
+
+                </div>
 
             
             <div class="lg:hidden">
@@ -89,7 +83,7 @@
                     Services
                     <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
-                 <a href="#testimonials" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
+                   <a href="#testimonials" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
                     Testimonials
                     <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
@@ -223,11 +217,10 @@
             
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 
-                <!-- TESTIMONIAL 1: Name removed -->
                 <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
                     <div class="text-jojo-primary mb-3 flex justify-between items-center">
                         <span class="text-3xl font-serif">“</span>
-                         
+                        
                         <div class="flex space-x-0.5">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
@@ -240,14 +233,13 @@
                     <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- North End Resident</p>
                 </div>
                 
-                <!-- TESTIMONIAL 2: Name removed -->
                 <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
                     <div class="text-jojo-primary mb-3 flex justify-between items-center">
                         <span class="text-3xl font-serif">“</span>
                         
                         <div class="flex space-x-0.5">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10  15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
                             <svg class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
@@ -257,7 +249,6 @@
                     <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- Client in Eagle</p>
                 </div>
 
-                <!-- TESTIMONIAL 3: Name removed -->
                 <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
                     <div class="text-jojo-primary mb-3 flex justify-between items-center">
                         <span class="text-3xl font-serif">“</span>
@@ -300,7 +291,6 @@
                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300">
                     </div>
 
-                    <!-- Phone Number Field -->
                     <div>
                         <label for="phone" class="block text-sm font-semibold text-jojo-text mb-1">Phone Number</label>
                         
@@ -319,7 +309,7 @@
                         <label for="service" class="block text-sm font-semibold text-jojo-text mb-1">Service of Interest</label>
                         
                         <select id="service" name="service" required
-                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300 bg-white">
+                                 class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300 bg-white">
                             <option value="">Select a Service...</option>
                             <option value="housekeeping">Housekeeping (Routine/Scheduled)</option>
                             <option value="residential-deep">Residential Deep Clean / Move-Out</option>
@@ -358,7 +348,7 @@
     
     <footer class="bg-jojo-dark text-white py-10 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-             
+            
             <p class="text-2xl font-extrabold mb-3">JOJO CLEANING SERVICES</p>
             <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-lg mb-4">
                 
