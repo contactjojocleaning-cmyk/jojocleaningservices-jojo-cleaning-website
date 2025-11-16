@@ -42,12 +42,14 @@
             box-shadow: 0 20px 25px -5px rgba(244, 114, 182, 0.15), 0 10px 10px -5px rgba(244, 114, 182, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        /* No hover transform on service cards since they are now clickable to expand content */
+        
+        /* Ensure cursor pointer shows the cards are interactive */
         .service-card {
             cursor: pointer;
         }
+        /* Apply lighter hover effect when not expanded */
         .service-card:not(.service-card[aria-expanded="true"]):hover {
-            transform: translateY(-4px); /* Apply lighter hover effect */
+            transform: translateY(-4px); 
         }
         
         /* Custom high-contrast focus styles for accessibility (A11y) */
@@ -67,13 +69,26 @@
             scroll-behavior: smooth;
         }
         
-        /* Service detail specific styles for the transition */
-        .service-details[aria-expanded="true"] {
-            max-height: 200px; /* Large enough to contain content */
-        }
-        .service-details[aria-expanded="false"] {
+        /* --- ACCORDION DETAILS STYLES (THE FIX) --- */
+        .service-details {
             max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            /* Ensure the border is present but starts outside the padding */
+            border-top: 1px solid transparent; 
         }
+
+        .service-details[aria-expanded="true"] {
+            /* Set a height that is guaranteed to contain the content */
+            max-height: 200px; 
+            opacity: 1;
+            padding-top: 0.75rem; /* Space above text when open (tailwind pt-3) */
+            border-top-color: #F3F4F6; /* Light gray border for separator */
+        }
+
+        /* Icon rotation */
         .service-icon[aria-expanded="true"] {
             transform: rotate(180deg);
         }
@@ -229,7 +244,7 @@
             
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-8">
 
-                
+                <!-- Service Card: Residential -->
                 <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark" 
                      data-service="residential" aria-expanded="false" tabindex="0">
                     
@@ -240,14 +255,15 @@
                         <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </p>
                     
-                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                    <!-- Detail Content Area (Controlled by JS/CSS) -->
+                    <div class="service-details text-sm text-gray-700 border-t border-gray-100 w-full text-center" aria-hidden="true">
                         <p class="text-gray-600 text-xs sm:text-sm text-center">
                             Meticulous cleaning for homes, specializing in pre-sale, post-tenancy (move-in/out), and spring cleaning. We cover everything from baseboards to ceiling fans.
                         </p>
                     </div>
                 </div>
 
-                
+                <!-- Service Card: Housekeeping -->
                 <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
                      data-service="housekeeping" aria-expanded="false" tabindex="0">
                     
@@ -258,14 +274,15 @@
                         <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </p>
                     
-                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                    <!-- Detail Content Area (Controlled by JS/CSS) -->
+                    <div class="service-details text-sm text-gray-700 border-t border-gray-100 w-full text-center" aria-hidden="true">
                         <p class="text-gray-600 text-xs sm:text-sm text-center">
                             Scheduled weekly or bi-weekly service to keep your home tidy, managed, and running smoothly. Includes dusting, vacuuming, kitchen wipe-downs, and basic tidying.
                         </p>
                     </div>
                 </div>
 
-                
+                <!-- Service Card: Commercial -->
                 <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
                      data-service="commercial" aria-expanded="false" tabindex="0">
                     
@@ -276,14 +293,15 @@
                         <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </p>
                     
-                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                    <!-- Detail Content Area (Controlled by JS/CSS) -->
+                    <div class="service-details text-sm text-gray-700 border-t border-gray-100 w-full text-center" aria-hidden="true">
                         <p class="text-gray-600 text-xs sm:text-sm text-center">
                             Tailored professional sanitation and maintenance plans for offices, retail, and small businesses to ensure a healthy and organized workplace environment.
                         </p>
                     </div>
                 </div>
 
-                
+                <!-- Service Card: Laundry -->
                 <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
                      data-service="laundry" aria-expanded="false" tabindex="0">
                     
@@ -294,14 +312,15 @@
                         <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </p>
                     
-                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                    <!-- Detail Content Area (Controlled by JS/CSS) -->
+                    <div class="service-details text-sm text-gray-700 border-t border-gray-100 w-full text-center" aria-hidden="true">
                         <p class="text-gray-600 text-xs sm:text-sm text-center">
                             We pick up your dirty laundry and return it freshly washed, dried, and folded to your specifications. Ultimate convenience for busy professionals and families.
                         </p>
                     </div>
                 </div>
                 
-                
+                <!-- Service Card: Specialty (takes up 1 column on mobile/desktop, 2 on sm screen) -->
                 <div class="col-span-2 sm:col-span-1 md:col-span-1 bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
                      data-service="specialty" aria-expanded="false" tabindex="0">
                     
@@ -312,7 +331,8 @@
                         <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </p>
                     
-                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                    <!-- Detail Content Area (Controlled by JS/CSS) -->
+                    <div class="service-details text-sm text-gray-700 border-t border-gray-100 w-full text-center" aria-hidden="true">
                         <p class="text-gray-600 text-xs sm:text-sm text-center">
                             Expert dry cleaning for delicate garments and professional cleaning, conditioning, and restoration services for all types of footwear.
                         </p>
@@ -425,11 +445,13 @@
                         <select id="service" name="service" required
                                 class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300 bg-white">
                             <option value="">Select a Service...</option>
-                            <option value="housekeeping">Housekeeping (Routine/Scheduled)</option>
-                            <option value="residential-deep">Residential Deep Clean / Move-Out</option>
-                            <option value="commercial">Commercial Sanitation</option>
-                            <option value="laundry">Laundry Pickup & Drop-off</option>
-                            <option value="specialty">Specialty Care (Dry Cleaning/Shoes)</option>
+                            <option value="Housekeeping - Recurring">Housekeeping - Recurring (Weekly/Bi-Weekly)</option>
+                            <option value="Residential - Deep Clean">Residential - Deep Clean (One-Time / Seasonal)</option>
+                            <option value="Residential - Move-In/Out">Residential - Move-In/Out Cleaning</option>
+                            <option value="Commercial - Office">Commercial - Office / Business Cleaning</option>
+                            <option value="Laundry - P/U & Drop-off">Laundry - Pickup & Drop-off Service</option>
+                            <option value="Specialty - Dry Cleaning">Specialty - Dry Cleaning</option>
+                            <option value="Specialty - Shoe Care">Specialty - Footwear Cleaning & Care</option>
                             <option value="other">Other Inquiry / Custom Quote</option>
                         </select>
                     </div>
@@ -603,12 +625,13 @@
             });
 
             // Toggle the current card
-            card.setAttribute('aria-expanded', String(!isExpanded));
-            details.setAttribute('aria-expanded', String(!isExpanded));
-            icon.setAttribute('aria-expanded', String(!isExpanded));
+            const newExpandedState = !isExpanded;
+            card.setAttribute('aria-expanded', String(newExpandedState));
+            details.setAttribute('aria-expanded', String(newExpandedState));
+            icon.setAttribute('aria-expanded', String(newExpandedState));
 
             // Scroll the element into view if expanding on mobile
-            if (!isExpanded && window.innerWidth < 768) { // 768px is Tailwind's 'md' breakpoint
+            if (newExpandedState && window.innerWidth < 768) { 
                 setTimeout(() => {
                     card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 300); // Wait for the transition to start
