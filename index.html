@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth"> <!-- Added scroll-smooth for nice anchor link scrolling -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>JOJO Cleaning Services | The Full Cleaning Experience</title> 
+    <title>JOJO Cleaning Services | The Full Cleaning Experience</title>    
     
-    <link rel="icon" type="image/png" href="/uploaded:image_66718f.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4">
+    <link rel="icon" type="image/png" href="image_66718f.png">
+    
+    <!-- *** RECOMMENDATION 1: Import Google Font 'Inter' *** -->
+    <!-- Your config was calling 'Inter', but it wasn't loaded. This will now load the font. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -38,36 +44,32 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 35px -5px rgba(219, 39, 119, 0.2), 0 10px 10px -5px rgba(219, 39, 119, 0.1);
         }
-        .section-bg {
-            background-color: var(--tw-colors-jojo-soft);
-        }
         
-        .header-fixed {
-            z-index: 100; 
-            background-color: white; 
-        }
-        
-        .mobile-menu-fixed {
-            z-index: 90; 
-        }
+        /* *** RECOMMENDATION 2: Removed redundant CSS *** */
+        /* .header-fixed and .mobile-menu-fixed were removed. */
+        /* We can rely on Tailwind's z-index and sticky classes directly */
+        /* for simpler code. */
+
     </style>
 </head>
 <body class="bg-jojo-soft font-sans text-jojo-text">
 
     
-    <header class="bg-jojo-light shadow-lg sticky top-0 z-20 header-fixed">
+    <!-- *** RECOMMENDATION 2 (continued): Using z-30 directly *** -->
+    <header class="bg-jojo-light shadow-lg sticky top-0 z-30">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
             
             <div class="flex items-center space-x-3">
                 
-                <img src="/uploaded:image_66718f.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4" 
+                <!-- *** PRIMARY FIX: Corrected logo size from h-18 w-18 *** -->
+                <img src="image_66718f.png" 
                      alt="JOJO Cleaning Logo" 
-                     class="h-30 w-30 object-contain hidden sm:inline-block">
+                     class="h-16 w-16 object-contain hidden sm:inline-block"> <!-- Was h-18 w-18 -->
                 
                 
                 <span class="text-xl sm:text-3xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
 
-                </div>
+            </div>
 
             
             <div class="lg:hidden">
@@ -83,7 +85,7 @@
                     Services
                     <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
-                   <a href="#testimonials" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
+                    <a href="#testimonials" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
                     Testimonials
                     <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
@@ -99,11 +101,19 @@
     </header>
 
     
-    <div id="mobile-menu" class="lg:hidden hidden bg-jojo-light shadow-xl p-4 space-y-3 text-center mobile-menu-fixed">
-        <a href="#services" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Services</a>
-        <a href="#testimonials" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Testimonials</a>
-        <a href="#why-us" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Why Choose Us</a>
-        <a href="#contact" class="block py-2 bg-jojo-dark text-white rounded-lg hover:bg-jojo-primary transition duration-300 font-semibold shadow-md">Book Now</a>
+    <!-- *** RECOMMENDATION 3: Improved Mobile Menu *** -->
+    <!-- This is now a "fixed" overlay. It's a more standard, professional UX. -->
+    <!-- It covers the screen and won't scroll away like the old one. -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-jojo-light shadow-xl p-4 space-y-6 text-center fixed inset-0 z-50 flex flex-col justify-center">
+        <!-- Added a close button for the new overlay menu -->
+        <button id="menu-close-button" class="text-jojo-text hover:text-jojo-primary focus:outline-none p-2 rounded-full transition duration-300 active:bg-jojo-soft absolute top-7 right-5">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        
+        <a href="#services" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 text-2xl">Services</a>
+        <a href="#testimonials" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 text-2xl">Testimonials</a>
+        <a href="#why-us" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 text-2xl">Why Choose Us</a>
+        <a href="#contact" class="block py-3 px-8 bg-jojo-dark text-white rounded-lg hover:bg-jojo-primary transition duration-300 font-semibold shadow-md text-2xl max-w-xs mx-auto">Book Now</a>
     </div>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -161,7 +171,10 @@
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-jojo-dark">Our Full Spectrum of Cleaning Solutions</h2>
             
             
-            <div class="grid lg:grid-cols-5 md:grid-cols-2 gap-8">
+            <!-- *** RECOMMENDATION 4: Smarter Responsive Grid *** -->
+            <!-- Changed "md:grid-cols-2" to "md:grid-cols-3" -->
+            <!-- This avoids the awkward "hanging" card on tablet sizes. -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
                 
                 <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
@@ -309,7 +322,7 @@
                         <label for="service" class="block text-sm font-semibold text-jojo-text mb-1">Service of Interest</label>
                         
                         <select id="service" name="service" required
-                                 class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300 bg-white">
+                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300 bg-white">
                             <option value="">Select a Service...</option>
                             <option value="housekeeping">Housekeeping (Routine/Scheduled)</option>
                             <option value="residential-deep">Residential Deep Clean / Move-Out</option>
@@ -446,16 +459,30 @@
             }
         }
 
-        // Script for mobile menu toggle
-        document.getElementById('menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
+        // *** RECOMMENDATION 3 (continued): Updated Mobile Menu JS ***
+        const menuButton = document.getElementById('menu-button');
+        const closeButton = document.getElementById('menu-close-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
             mobileMenu.classList.toggle('hidden');
-        });
+            // Optional: Prevent body scrolling when menu is open
+            if (!mobileMenu.classList.contains('hidden')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        menuButton.addEventListener('click', toggleMenu);
+        closeButton.addEventListener('click', toggleMenu);
+
 
         // Hide mobile menu when a link is clicked
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
+                // We just call toggleMenu() which will hide it and restore scroll
+                toggleMenu();
             });
         });
 
@@ -464,6 +491,10 @@
             const currentYearSpan = document.getElementById('current-year');
             if (currentYearSpan) {
                 currentYearSpan.textContent = new Date().getFullYear();
+            }
+            // Add submit listener for the form
+            if (form) {
+                form.addEventListener('submit', handleFormSubmission);
             }
         });
     </script>
