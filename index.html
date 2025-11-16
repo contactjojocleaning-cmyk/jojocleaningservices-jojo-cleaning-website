@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth"> <!-- Added scroll-smooth for nice anchor link scrolling -->
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,10 @@
     
     <link rel="icon" type="image/png" href="image_66718f.png">
     
+    <!-- FIX: PRELOAD HINT ADDED for faster loading of the critical logo -->
+    <link rel="preload" as="image" href="image_66718f.png">
+    
     <!-- *** RECOMMENDATION 1: Import Google Font 'Inter' *** -->
-    <!-- Your config was calling 'Inter', but it wasn't loaded. This will now load the font. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -61,10 +63,10 @@
             
             <div class="flex items-center space-x-3">
                 
-                <!-- *** PRIMARY FIX: Corrected logo size from h-18 w-18 *** -->
+                <!-- FIX: Removed 'hidden sm:inline-block' so the logo shows on mobile -->
                 <img src="image_66718f.png" 
                      alt="JOJO Cleaning Logo" 
-                     class="h-16 w-16 object-contain hidden sm:inline-block"> <!-- Was h-18 w-18 -->
+                     class="h-16 w-16 object-contain inline-block">
                 
                 
                 <span class="text-xl sm:text-3xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
