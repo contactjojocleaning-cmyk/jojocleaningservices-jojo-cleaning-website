@@ -42,9 +42,12 @@
             box-shadow: 0 20px 25px -5px rgba(244, 114, 182, 0.15), 0 10px 10px -5px rgba(244, 114, 182, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .card-shadow-lg:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 35px -5px rgba(219, 39, 119, 0.2), 0 10px 10px -5px rgba(219, 39, 119, 0.1);
+        /* No hover transform on service cards since they are now clickable to expand content */
+        .service-card {
+            cursor: pointer;
+        }
+        .service-card:not(.service-card[aria-expanded="true"]):hover {
+            transform: translateY(-4px); /* Apply lighter hover effect */
         }
         
         /* Custom high-contrast focus styles for accessibility (A11y) */
@@ -62,6 +65,17 @@
         /* Ensure smooth scroll behavior */
         html {
             scroll-behavior: smooth;
+        }
+        
+        /* Service detail specific styles for the transition */
+        .service-details[aria-expanded="true"] {
+            max-height: 200px; /* Large enough to contain content */
+        }
+        .service-details[aria-expanded="false"] {
+            max-height: 0;
+        }
+        .service-icon[aria-expanded="true"] {
+            transform: rotate(180deg);
         }
 
     </style>
@@ -153,17 +167,25 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-12">
 
         
-        <section class="text-center py-16 sm:py-24 bg-gradient-to-br from-jojo-light/90 to-jojo-soft/70 rounded-3xl shadow-2xl mb-20 border-b-8 border-jojo-primary overflow-hidden">
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-jojo-dark mb-4 drop-shadow-md">
-                Your Space, <span class="text-jojo-primary">Sparkling Clean.</span>
-            </h1>
+        <section id="hero-banner" 
+            class="text-center py-16 sm:py-24 bg-cover bg-center relative rounded-3xl shadow-2xl mb-20 border-b-8 border-jojo-primary overflow-hidden" 
+            style="background-image: url('Cleaning.jpg'); background-size: cover; background-position: center;">
             
-            <p class="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 font-light px-2">
-                <span class="font-extrabold text-jojo-text">JOJO CLEANING SERVICES</span> provides the <span class="font-extrabold text-jojo-text">Full Cleaning Experience</span>—from specialized Deep Cleans to convenient Pickup & Drop-off Laundry.
-            </p>
-            <a href="#contact" class="inline-block px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-bold text-white bg-jojo-dark rounded-full hover:bg-jojo-primary transition duration-300 transform hover:scale-105 shadow-2xl shadow-jojo-dark/50">
-                Get a Free Quote
-            </a>
+            <!-- Light Pink Overlay for contrast and branding -->
+            <div class="absolute inset-0 bg-jojo-soft opacity-75"></div> <!-- Opacity adjusted slightly for better contrast -->
+
+            <div class="relative z-10 text-jojo-text"> 
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-jojo-dark mb-4 drop-shadow-md">
+                    Your Space, <span class="text-jojo-primary">Sparkling Clean.</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-10 font-light px-2">
+                    <span class="font-extrabold text-jojo-text">JOJO CLEANING SERVICES</span> provides the <span class="font-extrabold text-jojo-text">Full Cleaning Experience</span>—from specialized Deep Cleans to convenient Pickup & Drop-off Laundry.
+                </p>
+                <a href="#contact" class="inline-block px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-bold text-white bg-jojo-dark rounded-full hover:bg-jojo-primary transition duration-300 transform hover:scale-105 shadow-2xl shadow-jojo-dark/50">
+                    Get a Free Quote
+                </a>
+            </div>
         </section>
 
         
@@ -208,48 +230,93 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-8">
 
                 
-                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark" 
+                     data-service="residential" aria-expanded="false" tabindex="0">
                     
                     <svg class="w-10 h-10 sm:w-14 sm:h-14 mb-3 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     <h3 class="text-lg sm:text-xl font-bold mb-1 text-jojo-dark">Residential</h3>
-                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 border-b pb-2 w-full">Deep & Move-Out</p>
-                    <p class="text-gray-600 text-xs sm:text-sm hidden sm:block">One-time deep cleans, seasonal refreshers, and meticulous move-in/move-out services.</p>
+                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 pb-2 w-full flex justify-center items-center">
+                        Deep & Move-Out 
+                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </p>
+                    
+                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                        <p class="text-gray-600 text-xs sm:text-sm text-center">
+                            Meticulous cleaning for homes, specializing in pre-sale, post-tenancy (move-in/out), and spring cleaning. We cover everything from baseboards to ceiling fans.
+                        </p>
+                    </div>
                 </div>
 
                 
-                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
+                     data-service="housekeeping" aria-expanded="false" tabindex="0">
                     
                     <svg class="w-10 h-10 sm:w-14 sm:h-14 mb-3 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h14M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     <h3 class="text-lg sm:text-xl font-bold mb-1 text-jojo-dark">Housekeeping</h3>
-                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 border-b pb-2 w-full">Routine Maintenance</p>
-                    <p class="text-gray-600 text-xs sm:text-sm hidden sm:block">Scheduled weekly or bi-weekly service to keep your home tidy, managed, and running smoothly.</p>
+                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 pb-2 w-full flex justify-center items-center">
+                        Routine Maintenance
+                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </p>
+                    
+                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                        <p class="text-gray-600 text-xs sm:text-sm text-center">
+                            Scheduled weekly or bi-weekly service to keep your home tidy, managed, and running smoothly. Includes dusting, vacuuming, kitchen wipe-downs, and basic tidying.
+                        </p>
+                    </div>
                 </div>
 
                 
-                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
+                     data-service="commercial" aria-expanded="false" tabindex="0">
                     
                     <svg class="w-10 h-10 sm:w-14 sm:h-14 mb-3 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m6 0h6"></path></svg>
                     <h3 class="text-lg sm:text-xl font-bold mb-1 text-jojo-dark">Commercial</h3>
-                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 border-b pb-2 w-full">Office & Business</p>
-                    <p class="text-gray-600 text-xs sm:text-sm hidden sm:block">Professional sanitation and maintenance plans to ensure a healthy and organized workplace.</p>
+                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 pb-2 w-full flex justify-center items-center">
+                        Office & Business
+                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </p>
+                    
+                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                        <p class="text-gray-600 text-xs sm:text-sm text-center">
+                            Tailored professional sanitation and maintenance plans for offices, retail, and small businesses to ensure a healthy and organized workplace environment.
+                        </p>
+                    </div>
                 </div>
 
                 
-                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                <div class="bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
+                     data-service="laundry" aria-expanded="false" tabindex="0">
                     
                     <svg class="w-10 h-10 sm:w-14 sm:h-14 mb-3 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M10 16h4M3 8h18M3 4h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V6a2 2 0 012-2z"></path></svg>
                     <h3 class="text-lg sm:text-xl font-bold mb-1 text-jojo-dark">Laundry</h3>
-                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 border-b pb-2 w-full">Pickup & Drop-off</p>
-                    <p class="text-gray-600 text-xs sm:text-sm hidden sm:block">Ultimate convenience! We handle the wash, fold, and delivery of your clean, fresh laundry.</p>
+                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 pb-2 w-full flex justify-center items-center">
+                        Pickup & Drop-off
+                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </p>
+                    
+                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                        <p class="text-gray-600 text-xs sm:text-sm text-center">
+                            We pick up your dirty laundry and return it freshly washed, dried, and folded to your specifications. Ultimate convenience for busy professionals and families.
+                        </p>
+                    </div>
                 </div>
                 
                 
-                <div class="col-span-2 sm:col-span-1 md:col-span-1 bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                <div class="col-span-2 sm:col-span-1 md:col-span-1 bg-jojo-light p-4 sm:p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center service-card focus:outline-none focus-visible:ring-2 focus-visible:ring-jojo-dark"
+                     data-service="specialty" aria-expanded="false" tabindex="0">
                     
                     <svg class="w-10 h-10 sm:w-14 sm:h-14 mb-3 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14M3 21h18a1 1 0 001-1v-7a2 2 0 00-2-2H4a2 2 0 00-2 2v7a1 1 0 001 1z"></path></svg>
                     <h3 class="text-lg sm:text-xl font-bold mb-1 text-jojo-dark">Specialty</h3>
-                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 border-b pb-2 w-full">Dry Cleaning & Shoes</p>
-                    <p class="text-gray-600 text-xs sm:text-sm hidden sm:block">Expert dry cleaning for delicate garments, plus specialty cleaning and conditioning for footwear.</p>
+                    <p class="text-xs sm:text-sm text-gray-700 font-semibold mb-3 pb-2 w-full flex justify-center items-center">
+                        Dry Cleaning & Shoes
+                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 transform rotate-0 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </p>
+                    
+                    <div class="service-details h-0 overflow-hidden transition-all duration-300 ease-in-out text-sm text-gray-700 pt-2 border-t border-gray-100 w-full text-center" aria-hidden="true">
+                        <p class="text-gray-600 text-xs sm:text-sm text-center">
+                            Expert dry cleaning for delicate garments and professional cleaning, conditioning, and restoration services for all types of footwear.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -517,7 +584,51 @@
             }
         }
 
-        // UPDATED Mobile Menu Logic (Includes fix for button focus)
+
+        // *** SERVICES ACCORDION LOGIC ***
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        function toggleServiceDetail(card) {
+            const isExpanded = card.getAttribute('aria-expanded') === 'true';
+            const details = card.querySelector('.service-details');
+            const icon = card.querySelector('.service-icon');
+
+            // Collapse all other cards
+            serviceCards.forEach(otherCard => {
+                if (otherCard !== card && otherCard.getAttribute('aria-expanded') === 'true') {
+                    otherCard.setAttribute('aria-expanded', 'false');
+                    otherCard.querySelector('.service-details').setAttribute('aria-expanded', 'false');
+                    otherCard.querySelector('.service-icon').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle the current card
+            card.setAttribute('aria-expanded', String(!isExpanded));
+            details.setAttribute('aria-expanded', String(!isExpanded));
+            icon.setAttribute('aria-expanded', String(!isExpanded));
+
+            // Scroll the element into view if expanding on mobile
+            if (!isExpanded && window.innerWidth < 768) { // 768px is Tailwind's 'md' breakpoint
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300); // Wait for the transition to start
+            }
+        }
+
+        // Attach listeners to all service cards
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => toggleServiceDetail(card));
+            // Also handle keyboard interaction (Enter/Space)
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault(); // Prevent default action for space key (scrolling)
+                    toggleServiceDetail(card);
+                }
+            });
+        });
+
+
+        // *** MOBILE MENU LOGIC ***
         function toggleMenu(show) {
             const isOpening = show !== undefined ? show : mobileMenuWrapper.classList.contains('hidden');
             const isMenuButton = document.getElementById('menu-button');
@@ -541,17 +652,25 @@
                     mobileMenuWrapper.classList.add('hidden');
                     document.body.style.overflow = 'auto'; // Re-enable background scroll
                     
-                    // FIX FOR FOCUS RING: Explicitly remove focus from the menu button
+                    // Explicitly remove focus from the menu button
                     if (isMenuButton) isMenuButton.blur(); 
                     
                 }, 300);
             }
         }
 
-        // Event listeners for the new mobile menu logic
+        // Event listeners for the mobile menu
         menuButton.addEventListener('click', () => toggleMenu(true)); // Open
         closeButton.addEventListener('click', () => toggleMenu(false)); // Close button
         menuOverlay.addEventListener('click', () => toggleMenu(false)); // Close on overlay click
+
+        // Accessibility improvement: Close menu on ESC key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenuWrapper.classList.contains('hidden')) {
+                toggleMenu(false);
+            }
+        });
+
 
         // Hide mobile menu when a link is clicked
         document.querySelectorAll('#mobile-menu-panel a').forEach(link => {
@@ -592,13 +711,12 @@
             }
         });
 
-        // JavaScript function to automatically update the copyright year and attach listeners
+        // JavaScript function to automatically update the copyright year and attach form listener
         document.addEventListener('DOMContentLoaded', () => {
             const currentYearSpan = document.getElementById('current-year');
             if (currentYearSpan) {
                 currentYearSpan.textContent = new Date().getFullYear();
             }
-            // Add submit listener for the form
             if (form) {
                 form.addEventListener('submit', handleFormSubmission);
             }
