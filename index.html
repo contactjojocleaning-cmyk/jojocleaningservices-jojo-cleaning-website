@@ -417,16 +417,15 @@
         </div>
     </footer>
     
-    <!-- NEW: Sticky Book Now Button (Mobile Only) -->
+    <!-- UPDATED: Floating CTA (Mobile Only, FAB Style) -->
     <a href="#contact" 
        id="sticky-cta-button" 
-       class="lg:hidden fixed bottom-0 left-0 right-0 py-3 text-xl font-bold text-center 
-              bg-jojo-primary text-white hover:bg-jojo-dark transition duration-300 
-              shadow-2xl shadow-jojo-dark/70 z-40 
-              transform translate-y-0 active:scale-[0.99]"
+       class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-sm py-4 text-xl font-bold text-center 
+              bg-jojo-dark text-white rounded-full hover:bg-jojo-primary transition duration-300 
+              shadow-2xl shadow-jojo-dark/70 z-40 transform active:scale-[0.98] focus-visible:outline-none"
        role="button"
        aria-label="Book Cleaning Service Now">
-        BOOK YOUR CLEANING NOW
+        BOOK NOW
     </a>
 
     
@@ -514,7 +513,7 @@
             }
         }
 
-        // UPDATED Mobile Menu Logic (Uses CSS transitions for smooth sliding)
+        // UPDATED Mobile Menu Logic (Includes fix for button focus)
         function toggleMenu(show) {
             const isOpening = show !== undefined ? show : mobileMenuWrapper.classList.contains('hidden');
             const isMenuButton = document.getElementById('menu-button');
@@ -537,8 +536,10 @@
                 setTimeout(() => {
                     mobileMenuWrapper.classList.add('hidden');
                     document.body.style.overflow = 'auto'; // Re-enable background scroll
-                    // Accessibility: Return focus to the menu button
-                    if (isMenuButton) isMenuButton.focus(); 
+                    
+                    // FIX FOR FOCUS RING: Explicitly remove focus from the menu button
+                    if (isMenuButton) isMenuButton.blur(); 
+                    
                 }, 300);
             }
         }
