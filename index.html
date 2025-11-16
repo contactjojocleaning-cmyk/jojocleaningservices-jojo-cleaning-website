@@ -80,7 +80,7 @@
                      class="h-14 w-14 object-contain inline-block">
                 
                 
-                <span class="text-xl sm:text-2xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING</span>
+                <span class="text-xl sm:text-2xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
             </div>
 
             
@@ -417,12 +417,13 @@
         </div>
     </footer>
     
-    <!-- UPDATED: Floating CTA (Mobile Only, FAB Style) -->
+    <!-- Floating CTA (Mobile Only, FAB Style - Bottom Right) -->
     <a href="#contact" 
        id="sticky-cta-button" 
-       class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-sm py-4 text-xl font-bold text-center 
+       class="lg:hidden fixed bottom-6 right-4 w-40 py-3 text-lg font-bold text-center 
               bg-jojo-dark text-white rounded-full hover:bg-jojo-primary transition duration-300 
-              shadow-2xl shadow-jojo-dark/70 z-40 transform active:scale-[0.98] focus-visible:outline-none"
+              shadow-2xl shadow-jojo-dark/70 z-40 transform active:scale-[0.98] 
+              opacity-100 scale-100 transition-all duration-300 focus-visible:outline-none"
        role="button"
        aria-label="Book Cleaning Service Now">
         BOOK NOW
@@ -438,6 +439,10 @@
         const successMessage = document.getElementById('success-message');
         const errorMessage = document.getElementById('error-message');
         const header = document.getElementById('site-header');
+
+        // NEW REFERENCES FOR FAB HIDING LOGIC
+        const contactSection = document.getElementById('contact');
+        const stickyCtaButton = document.getElementById('sticky-cta-button'); 
 
         // References for the mobile menu
         const mobileMenuWrapper = document.getElementById('mobile-menu-wrapper');
@@ -499,7 +504,6 @@
                 } else {
                     // Log error details for debugging
                     console.error('Pipedream submission failed with status:', response.status);
-                    // No logging of response text in final version unless critical for in-app error message display
                     showMessage(errorMessage, true);
                 }
 
@@ -556,14 +560,35 @@
             });
         });
 
-        // Function to add/remove shadow on the sticky header based on scroll
+        // Function to add/remove shadow on the sticky header and control FAB visibility
         window.addEventListener('scroll', () => {
+            
+            // 1. Header Shadow Logic
             if (window.scrollY > 50) { // Scroll 50px down before applying stronger shadow
                 header.classList.add('shadow-xl', 'border-b', 'border-gray-100', 'py-2');
                 header.classList.remove('shadow-md', 'py-4');
             } else {
                 header.classList.remove('shadow-xl', 'border-b', 'border-gray-100', 'py-2');
                 header.classList.add('shadow-md', 'py-4');
+            }
+
+            // 2. FAB Hiding Logic (Mobile Only)
+            if (contactSection && stickyCtaButton && window.innerWidth < 1024) { // 1024px is Tailwind's 'lg' breakpoint
+                const contactRect = contactSection.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                
+                // Hide the FAB when the contact section is close to entering the viewport (within 100px from the bottom)
+                const isContactVisible = contactRect.top < viewportHeight - 100; 
+
+                if (isContactVisible) {
+                    // Hide the FAB smoothly
+                    stickyCtaButton.classList.add('opacity-0', 'scale-75');
+                    stickyCtaButton.classList.remove('opacity-100', 'scale-100');
+                } else {
+                    // Show the FAB smoothly
+                    stickyCtaButton.classList.add('opacity-100', 'scale-100');
+                    stickyCtaButton.classList.remove('opacity-0', 'scale-75');
+                }
             }
         });
 
