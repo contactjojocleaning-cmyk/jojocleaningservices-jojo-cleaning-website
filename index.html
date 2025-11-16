@@ -1,475 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>JOJO Cleaning Services | The Full Cleaning Experience</title> 
-    
-        <link rel="icon" type="image/png" href="IMG_4721.PNG">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'jojo-primary': '#F472B6', // Bright Pink
-                        'jojo-dark': '#DB2777',    // Darker Magenta for accents
-                        'jojo-soft': '#FCE7F6',    // Very light pink for subtle backgrounds
-                        'jojo-light': '#FFFFFF',   // Pure White background (cleaner look)
-                        'jojo-text': '#1F2937',    // Dark Gray text
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom styles for aesthetic enhancements */
-        .card-shadow-lg {
-            box-shadow: 0 20px 25px -5px rgba(244, 114, 182, 0.15), 0 10px 10px -5px rgba(244, 114, 182, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-shadow-lg:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 35px -5px rgba(219, 39, 119, 0.2), 0 10px 10px -5px rgba(219, 39, 119, 0.1);
-        }
-        .section-bg {
-            background-color: var(--tw-colors-jojo-soft);
-        }
-        
-        /* 1. Header Freeze (Sticky Bar): Ensure high Z-index for visibility over scrolling content */
-        .header-fixed {
-            z-index: 100; 
-            background-color: white; /* Ensures it is opaque when scrolling */
-        }
-        
-        /* 2. Mobile Menu Visibility: Ensures the menu appears right below the sticky header */
-        .mobile-menu-fixed {
-            z-index: 90; 
-            /* Relative position is correct as it follows the sticky header's flow when opened */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>JOJO Cleaning Services | The Full Cleaning Experience</title> 
+    
+    <!-- FAVICON / TAB LOGO: Using the reliable file ID for IMG_4721.PNG -->
+    <link rel="icon" type="image/png" href="/uploaded:IMG_4721.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jojo-primary': '#F472B6', // Bright Pink
+                        'jojo-dark': '#DB2777',    // Darker Magenta for accents
+                        'jojo-soft': '#FCE7F6',    // Very light pink for subtle backgrounds
+                        'jojo-light': '#FFFFFF',   // Pure White background (cleaner look)
+                        'jojo-text': '#1F2937',    // Dark Gray text
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for aesthetic enhancements */
+        .card-shadow-lg {
+            box-shadow: 0 20px 25px -5px rgba(244, 114, 182, 0.15), 0 10px 10px -5px rgba(244, 114, 182, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-shadow-lg:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -5px rgba(219, 39, 119, 0.2), 0 10px 10px -5px rgba(219, 39, 119, 0.1);
+        }
+        .section-bg {
+            background-color: var(--tw-colors-jojo-soft);
+        }
+        
+        /* 1. Header Freeze (Sticky Bar): Ensure high Z-index for visibility over scrolling content */
+        .header-fixed {
+            z-index: 100; 
+            background-color: white; /* Ensures it is opaque when scrolling */
+        }
+        
+        /* 2. Mobile Menu Visibility: Ensures the menu appears right below the sticky header */
+        .mobile-menu-fixed {
+            z-index: 90; 
+            /* Relative position is correct as it follows the sticky header's flow when opened */
+        }
+    </style>
 </head>
 <body class="bg-jojo-soft font-sans text-jojo-text">
 
-    
-        <header class="bg-jojo-light shadow-lg sticky top-0 z-20 header-fixed">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
-            
-            <div class="flex items-center space-x-3">
-                
-                                <div class="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0">
-                    <img src="IMG_4721.PNG" 
-                         alt="JOJO Cleaning Logo" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/48x48/F472B6/FFFFFF?text=JO'"
-                         class="w-full h-full object-contain">
-            </div>
-                
-                <span class="text-xl sm:text-3xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
-            </div>
+    
+    <!-- TOP BAR / HEADER (Frozen/Sticky) -->
+    <header class="bg-jojo-light shadow-lg sticky top-0 z-20 header-fixed">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
+            
+            <div class="flex items-center space-x-3">
+                
+                <!-- MAIN LOGO: Using the reliable file ID for IMG_4721.PNG -->
+                <div class="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0">
+                    <img src="/uploaded:IMG_4721.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4" 
+                         alt="JOJO Cleaning Logo" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/48x48/F472B6/FFFFFF?text=JO'"
+                         class="w-full h-full object-contain">
+                </div>
+                
+                <span class="text-xl sm:text-3xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
+            </div>
 
-            
-            <div class="lg:hidden">
-                <button id="menu-button" class="text-jojo-text hover:text-jojo-primary focus:outline-none p-2 rounded-full transition duration-300 active:bg-jojo-soft">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
+            
+            <div class="lg:hidden">
+                <button id="menu-button" class="text-jojo-text hover:text-jojo-primary focus:outline-none p-2 rounded-full transition duration-300 active:bg-jojo-soft">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
 
-            
-            <div class="hidden lg:flex space-x-10 text-lg font-semibold">
-                
-                <a href="#services" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
-                    Services
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                 <a href="#testimonials" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
-                    Testimonials
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#why-us" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
-                    Why Choose Us
-                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#contact" class="px-5 py-2 bg-jojo-primary text-white rounded-full hover:bg-jojo-dark transition duration-300 shadow-xl transform hover:scale-105">
-                    Book Now
-                </a>
-            </div>
-        </nav>
-    </header>
+            
+            <div class="hidden lg:flex space-x-10 text-lg font-semibold">
+                
+                <a href="#services" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
+                    Services
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                 <a href="#testimonials" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
+                    Testimonials
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#why-us" class="text-jojo-text hover:text-jojo-dark transition duration-300 relative group">
+                    Why Choose Us
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-jojo-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                <a href="#contact" class="px-5 py-2 bg-jojo-primary text-white rounded-full hover:bg-jojo-dark transition duration-300 shadow-xl transform hover:scale-105">
+                    Book Now
+                </a>
+            </div>
+        </nav>
+    </header>
 
-    
-    <div id="mobile-menu" class="lg:hidden hidden bg-jojo-light shadow-xl p-4 space-y-3 text-center mobile-menu-fixed">
-        <a href="#services" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Services</a>
-        <a href="#testimonials" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Testimonials</a>
-        <a href="#why-us" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Why Choose Us</a>
-        <a href="#contact" class="block py-2 bg-jojo-dark text-white rounded-lg hover:bg-jojo-primary transition duration-300 font-semibold shadow-md">Book Now</a>
-    </div>
+    
+    <div id="mobile-menu" class="lg:hidden hidden bg-jojo-light shadow-xl p-4 space-y-3 text-center mobile-menu-fixed">
+        <a href="#services" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Services</a>
+        <a href="#testimonials" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Testimonials</a>
+        <a href="#why-us" class="block text-jojo-text hover:text-jojo-primary py-2 font-medium transition duration-300 border-b border-jojo-soft">Why Choose Us</a>
+        <a href="#contact" class="block py-2 bg-jojo-dark text-white rounded-lg hover:bg-jojo-primary transition duration-300 font-semibold shadow-md">Book Now</a>
+    </div>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        
-        <section class="text-center py-24 bg-jojo-light rounded-3xl shadow-2xl mb-20 border-b-8 border-jojo-primary overflow-hidden">
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-jojo-dark mb-4 drop-shadow-md">
-                Your Space, <span class="text-jojo-primary">Sparkling Clean.</span>
-            </h1>
-            
-            <p class="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 font-light px-2">
-                <span class="font-extrabold text-jojo-text">JOJO CLEANING SERVICES</span> provides the <span class="font-extrabold text-jojo-text">Full Cleaning Experience</span>—from specialized Deep Cleans to convenient Pickup & Drop-off Laundry.
-            </p>
-            <a href="#contact" class="inline-block px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-bold text-white bg-jojo-dark rounded-full hover:bg-jojo-primary transition duration-300 transform hover:scale-105 shadow-2xl shadow-jojo-dark/50">
-                Get a Free Quote
-            </a>
-        </section>
+        
+        <section class="text-center py-24 bg-jojo-light rounded-3xl shadow-2xl mb-20 border-b-8 border-jojo-primary overflow-hidden">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight text-jojo-dark mb-4 drop-shadow-md">
+                Your Space, <span class="text-jojo-primary">Sparkling Clean.</span>
+            </h1>
+            
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 font-light px-2">
+                <span class="font-extrabold text-jojo-text">JOJO CLEANING SERVICES</span> provides the <span class="font-extrabold text-jojo-text">Full Cleaning Experience</span>—from specialized Deep Cleans to convenient Pickup & Drop-off Laundry.
+            </p>
+            <a href="#contact" class="inline-block px-8 sm:px-10 py-3 sm:py-4 text-lg sm:text-xl font-bold text-white bg-jojo-dark rounded-full hover:bg-jojo-primary transition duration-300 transform hover:scale-105 shadow-2xl shadow-jojo-dark/50">
+                Get a Free Quote
+            </a>
+        </section>
 
-        
-        <section id="why-us" class="py-16">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-jojo-dark">Professional, Trustworthy, Local.</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
-                
-                
-                <div class="bg-jojo-light p-8 rounded-xl card-shadow-lg border-t-4 border-jojo-primary">
-                    <span class="inline-block p-3 rounded-full bg-jojo-soft mb-4">
-                        <svg class="w-8 h-8 text-jojo-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.108a12.002 12.002 0 011.18 5.618C21.905 13.923 18 20 12 20s-9.905-6.077-9.798-12.49c.045-2.073.743-4.045 2.016-5.618L9 9l3-3 3 3"></path></svg>
-                    </span>
-                    <h3 class="text-xl font-extrabold mb-2 text-jojo-text">Licensed & Insured</h3>
-                    <p class="text-gray-600">Peace of mind guaranteed. We are fully licensed and insured, protecting your property and our staff.</p>
-                </div>
+        
+        <section id="why-us" class="py-16">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-jojo-dark">Professional, Trustworthy, Local.</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
+                
+                
+                <div class="bg-jojo-light p-8 rounded-xl card-shadow-lg border-t-4 border-jojo-primary">
+                    <span class="inline-block p-3 rounded-full bg-jojo-soft mb-4">
+                        <svg class="w-8 h-8 text-jojo-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.108a12.002 12.002 0 011.18 5.618C21.905 13.923 18 20 12 20s-9.905-6.077-9.798-12.49c.045-2.073.743-4.045 2.016-5.618L9 9l3-3 3 3"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-extrabold mb-2 text-jojo-text">Licensed & Insured</h3>
+                    <p class="text-gray-600">Peace of mind guaranteed. We are fully licensed and insured, protecting your property and our staff.</p>
+                </div>
 
-                
-                <div class="bg-jojo-light p-8 rounded-xl card-shadow-lg border-t-4 border-jojo-primary">
-                    <span class="inline-block p-3 rounded-full bg-jojo-soft mb-4">
-                        <svg class="w-8 h-8 text-jojo-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    </span>
-                    <h3 class="text-xl font-extrabold mb-2 text-jojo-text">Serving Boise & Beyond</h3>
-                    <p class="text-gray-600">A local company committed to our community. We know what it takes to get the job done right, here in Boise.</p>
-                </div>
+                
+                <div class="bg-jojo-light p-8 rounded-xl card-shadow-lg border-t-4 border-jojo-primary">
+                    <span class="inline-block p-3 rounded-full bg-jojo-soft mb-4">
+                        <svg class="w-8 h-8 text-jojo-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-extrabold mb-2 text-jojo-text">Serving Boise & Beyond</h3>
+                    <p class="text-gray-600">A local company committed to our community. We know what it takes to get the job done right, here in Boise.</p>
+                </div>
 
-                
-                <div class="bg-jojo-light p-8 rounded-xl card-shadow-lg border-t-4 border-jojo-primary">
-                    <span class="inline-block p-3 rounded-full bg-jojo-soft mb-4">
-                        <svg class="w-8 h-8 text-jojo-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM7 8V4a2 2 0 012-2h6a2 2 0 012 2v4M5 19h14a2 2 0 002-2v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2z"></path></svg>
-                    </span>
-                    <h3 class="text-xl font-extrabold mb-2 text-jojo-text">Founder's Commitment</h3>
-                    <p class="text-gray-600">Founded by JO, who genuinely loves clean, organized spaces and ensures that that eye for detail is in every job.</p>
-                </div>
-            </div>
-        </section>
-        
-        
-        <section id="services" class="py-20">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-jojo-dark">Our Full Spectrum of Cleaning Solutions</h2>
-            
-            
-            <div class="grid lg:grid-cols-5 md:grid-cols-2 gap-8">
+                
+                <div class="bg-jojo-light p-8 rounded-xl card-shadow-lg border-t-4 border-jojo-primary">
+                    <span class="inline-block p-3 rounded-full bg-jojo-soft mb-4">
+                        <svg class="w-8 h-8 text-jojo-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM7 8V4a2 2 0 012-2h6a2 2 0 012 2v4M5 19h14a2 2 0 002-2v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2z"></path></svg>
+                    </span>
+                    <h3 class="text-xl font-extrabold mb-2 text-jojo-text">Founder's Commitment</h3>
+                    <p class="text-gray-600">Founded by JO, who genuinely loves clean, organized spaces and ensures that that eye for detail is in every job.</p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="services" class="py-20">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-jojo-dark">Our Full Spectrum of Cleaning Solutions</h2>
+            
+            
+            <div class="grid lg:grid-cols-5 md:grid-cols-2 gap-8">
 
-                
-                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
-                    
-                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Residential</h3>
-                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Deep & Move-Out Cleaning</p>
-                    <p class="text-gray-600 text-sm">One-time deep cleans, seasonal refreshers, and meticulous move-in/move-out services.</p>
-                </div>
+                
+                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                    
+                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Residential</h3>
+                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Deep & Move-Out Cleaning</p>
+                    <p class="text-gray-600 text-sm">One-time deep cleans, seasonal refreshers, and meticulous move-in/move-out services.</p>
+                </div>
 
-                
-                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
-                    
-                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h14M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Housekeeping</h3>
-                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Routine Maintenance Cleans</p>
-                    <p class="text-gray-600 text-sm">Scheduled weekly or bi-weekly service to keep your home tidy, managed, and running smoothly.</p>
-                </div>
+                
+                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                    
+                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h14M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Housekeeping</h3>
+                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Routine Maintenance Cleans</p>
+                    <p class="text-gray-600 text-sm">Scheduled weekly or bi-weekly service to keep your home tidy, managed, and running smoothly.</p>
+                </div>
 
-                
-                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
-                    
-                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m6 0h6"></path></svg>
-                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Commercial</h3>
-                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Office & Business Sanitation</p>
-                    <p class="text-gray-600 text-sm">Professional sanitation and maintenance plans to ensure a healthy and organized workplace.</p>
-                </div>
+                
+                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                    
+                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m6 0h6"></path></svg>
+                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Commercial</h3>
+                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Office & Business Sanitation</p>
+                    <p class="text-gray-600 text-sm">Professional sanitation and maintenance plans to ensure a healthy and organized workplace.</p>
+                </div>
 
-                
-                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
-                    
-                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M10 16h4M3 8h18M3 4h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V6a2 2 0 012-2z"></path></svg>
-                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Laundry Service</h3>
-                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Pickup, Wash, Fold, & Drop-off</p>
-                    <p class="text-gray-600 text-sm">Ultimate convenience! We handle the wash, fold, and delivery of your clean, fresh laundry.</p>
-                </div>
-                
-                
-                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
-                    
-                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14M3 21h18a1 1 0 001-1v-7a2 2 0 00-2-2H4a2 2 0 00-2 2v7a1 1 0 001 1z"></path></svg>
-                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Specialty Care</h3>
-                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Dry Cleaning & Shoe Services</p>
-                    <p class="text-gray-600 text-sm">Expert dry cleaning for delicate garments, plus specialty cleaning and conditioning for footwear.</p>
-                </div>
-            </div>
-        </section>
+                
+                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                    
+                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M10 16h4M3 8h18M3 4h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V6a2 2 0 012-2z"></path></svg>
+                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Laundry Service</h3>
+                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Pickup, Wash, Fold, & Drop-off</p>
+                    <p class="text-gray-600 text-sm">Ultimate convenience! We handle the wash, fold, and delivery of your clean, fresh laundry.</p>
+                </div>
+                
+                
+                <div class="bg-jojo-light p-6 rounded-xl card-shadow-lg flex flex-col items-center text-center">
+                    
+                    <svg class="w-14 h-14 mb-4 text-jojo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14M3 21h18a1 1 0 001-1v-7a2 2 0 00-2-2H4a2 2 0 00-2 2v7a1 1 0 001 1z"></path></svg>
+                    <h3 class="text-2xl font-bold mb-1 text-jojo-dark">Specialty Care</h3>
+                    <p class="text-sm text-gray-700 font-semibold mb-4 border-b pb-4 w-full">Dry Cleaning & Shoe Services</p>
+                    <p class="text-gray-600 text-sm">Expert dry cleaning for delicate garments, plus specialty cleaning and conditioning for footwear.</p>
+                </div>
+            </div>
+        </section>
 
-        
-        <section id="testimonials" class="py-20 bg-jojo-soft">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-jojo-dark">Hear From Our Happy Clients</h2>
-            <p class="text-lg text-gray-600 text-center mb-12">See why Boise trusts JOJO Cleaning Services for the full care experience.</p>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                
-                                <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
-                    <div class="text-jojo-primary mb-3 flex justify-between items-center">
-                        <span class="text-3xl font-serif">“</span>
-                         
-                        <div class="flex space-x-0.5">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-4 flex-grow">"The housekeeping service has been a game-changer for my weekly routine. They are prompt, reliable, and my apartment has never looked better. Highly recommend the recurring service!"</p>
-                    <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- North End Resident</p>
-                </div>
-                
-                                <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
-                    <div class="text-jojo-primary mb-3 flex justify-between items-center">
-                        <span class="text-3xl font-serif">“</span>
-                        
-                        <div class="flex space-x-0.5">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10  15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-4 flex-grow">"The pickup/drop-off laundry service is an absolute lifesaver. My clothes come back perfectly folded, smelling fresh, and the convenience is unbeatable. Five stars for service!"</p>
-                    <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- Client in Eagle</p>
-                </div>
+        
+        <section id="testimonials" class="py-20 bg-jojo-soft">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-jojo-dark">Hear From Our Happy Clients</h2>
+            <p class="text-lg text-gray-600 text-center mb-12">See why Boise trusts JOJO Cleaning Services for the full care experience.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- TESTIMONIAL 1: Name removed -->
+                <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
+                    <div class="text-jojo-primary mb-3 flex justify-between items-center">
+                        <span class="text-3xl font-serif">“</span>
+                         
+                        <div class="flex space-x-0.5">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4 flex-grow">"The housekeeping service has been a game-changer for my weekly routine. They are prompt, reliable, and my apartment has never looked better. Highly recommend the recurring service!"</p>
+                    <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- North End Resident</p>
+                </div>
+                
+                <!-- TESTIMONIAL 2: Name removed -->
+                <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
+                    <div class="text-jojo-primary mb-3 flex justify-between items-center">
+                        <span class="text-3xl font-serif">“</span>
+                        
+                        <div class="flex space-x-0.5">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10  15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current text-gray-300" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4 flex-grow">"The pickup/drop-off laundry service is an absolute lifesaver. My clothes come back perfectly folded, smelling fresh, and the convenience is unbeatable. Five stars for service!"</p>
+                    <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- Client in Eagle</p>
+                </div>
 
-                                <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
-                    <div class="text-jojo-primary mb-3 flex justify-between items-center">
-                        <span class="text-3xl font-serif">“</span>
-                        
-                        <div class="flex space-x-0.5">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
-                    </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-4 flex-grow">"Our office sanitation standards have improved significantly since switching to JOJO. They are professional, discreet, and ensure our workspace is healthy for all employees."</p>
-                    <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- Downtown Commercial Client</p>
-                </div>
-                
-            </div>
-            
-        </section>
+                <!-- TESTIMONIAL 3: Name removed -->
+                <div class="bg-jojo-light p-8 rounded-2xl shadow-xl border-b-4 border-jojo-primary flex flex-col">
+                    <div class="text-jojo-primary mb-3 flex justify-between items-center">
+                        <span class="text-3xl font-serif">“</span>
+                        
+                        <div class="flex space-x-0.5">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.549L.545 7.15l6.56-.955L10 0l2.895 6.195 6.56.955-4.707 4.391 1.122 6.549z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4 flex-grow">"Our office sanitation standards have improved significantly since switching to JOJO. They are professional, discreet, and ensure our workspace is healthy for all employees."</p>
+                    <p class="font-semibold text-jojo-dark mt-4 border-t pt-3">- Downtown Commercial Client</p>
+                </div>
+                
+            </div>
+            
+        </section>
 
 
-        
-        <section id="contact" class="py-20 bg-jojo-light rounded-3xl shadow-2xl border-t-8 border-jojo-dark">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-jojo-dark">Ready for a Sparkling Home?</h2>
-            
-            <p class="text-lg sm:text-xl text-gray-600 text-center mb-12 px-2">
-                Contact our local Boise team today. Call us at 
-                <a href="tel:2089977750" class="font-extrabold text-jojo-dark hover:text-jojo-primary transition duration-300">
-                    (208) 997-7750
-                </a>.
-            </p>
-            <div class="max-w-xl mx-auto p-6">
-                
-                
-                <form id="contact-form" onsubmit="handleFormSubmission(event)" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-semibold text-jojo-text mb-1">Full Name</label>
-                        
-                        <input type="text" id="name" name="name" required
-                               class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300">
-                    </div>
+        
+        <section id="contact" class="py-20 bg-jojo-light rounded-3xl shadow-2xl border-t-8 border-jojo-dark">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-jojo-dark">Ready for a Sparkling Home?</h2>
+            
+            <p class="text-lg sm:text-xl text-gray-600 text-center mb-12 px-2">
+                Contact our local Boise team today. Call us at 
+                <a href="tel:2089977750" class="font-extrabold text-jojo-dark hover:text-jojo-primary transition duration-300">
+                    (208) 997-7750
+                </a>.
+            </p>
+            <div class="max-w-xl mx-auto p-6">
+                
+                
+                <form id="contact-form" onsubmit="handleFormSubmission(event)" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-jojo-text mb-1">Full Name</label>
+                        
+                        <input type="text" id="name" name="name" required
+                               class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300">
+                    </div>
 
-                                        <div>
-                        <label for="phone" class="block text-sm font-semibold text-jojo-text mb-1">Phone Number</label>
-                        
-                        <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555"
-                               class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300">
-                    </div>
+                    <!-- Phone Number Field -->
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-jojo-text mb-1">Phone Number</label>
+                        
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555"
+                               class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300">
+                    </div>
 
-                    <div>
-                        <label for="email" class="block text-sm font-semibold text-jojo-text mb-1">Email Address</label>
-                        
-                        <input type="email" id="email" name="email" required
-                               class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300">
-                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-jojo-text mb-1">Email Address</label>
+                        
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300">
+                    </div>
 
-                    <div>
-                        <label for="service" class="block text-sm font-semibold text-jojo-text mb-1">Service of Interest</label>
-                        
-                        <select id="service" name="service" required
-                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300 bg-white">
-                            <option value="">Select a Service...</option>
-                            <option value="housekeeping">Housekeeping (Routine/Scheduled)</option>
-                            <option value="residential-deep">Residential Deep Clean / Move-Out</option>
-                            <option value="commercial">Commercial Sanitation</option>
-                            <option value="laundry">Laundry Pickup & Drop-off</option>
-                            <option value="specialty">Specialty Care (Dry Cleaning/Shoes)</option>
-                            <option value="other">Other Inquiry / Custom Quote</option>
-                        </select>
-                    </div>
+                    <div>
+                        <label for="service" class="block text-sm font-semibold text-jojo-text mb-1">Service of Interest</label>
+                        
+                        <select id="service" name="service" required
+                                class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300 bg-white">
+                            <option value="">Select a Service...</option>
+                            <option value="housekeeping">Housekeeping (Routine/Scheduled)</option>
+                            <option value="residential-deep">Residential Deep Clean / Move-Out</option>
+                            <option value="commercial">Commercial Sanitation</option>
+                            <option value="laundry">Laundry Pickup & Drop-off</option>
+                            <option value="specialty">Specialty Care (Dry Cleaning/Shoes)</option>
+                            <option value="other">Other Inquiry / Custom Quote</option>
+                        </select>
+                    </div>
 
-                    <div>
-                        <label for="message" class="block text-sm font-semibold text-jojo-text mb-1">Tell us about your needs</label>
-                        
-                        <textarea id="message" name="message" rows="5" required
-                                  class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300"></textarea>
-                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-semibold text-jojo-text mb-1">Tell us about your needs</label>
+                        
+                        <textarea id="message" name="message" rows="5" required
+                                  class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-jojo-dark focus:border-jojo-dark transition duration-300"></textarea>
+                    </div>
 
-                    <button type="submit" id="submit-button"
-                            class="w-full px-6 py-4 text-xl font-extrabold text-white bg-jojo-primary rounded-xl hover:bg-jojo-dark transition duration-300 transform hover:scale-[1.01] shadow-xl shadow-jojo-primary/50 disabled:opacity-50">
-                        Send Inquiry
-                    </button>
-                    
-                    <div id="success-message" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-xl font-medium text-center border border-green-300" role="alert">
-                        Success! Your message has been sent. We'll be in touch shortly.
-                    </div>
-                    
-                    <div id="error-message" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-xl font-medium text-center border border-red-300" role="alert">
-                        An error occurred while sending your message. Please try again or call us.
-                    </div>
-                </form>
-            </div>
-        </section>
+                    <button type="submit" id="submit-button"
+                            class="w-full px-6 py-4 text-xl font-extrabold text-white bg-jojo-primary rounded-xl hover:bg-jojo-dark transition duration-300 transform hover:scale-[1.01] shadow-xl shadow-jojo-primary/50 disabled:opacity-50">
+                        Send Inquiry
+                    </button>
+                    
+                    <div id="success-message" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-xl font-medium text-center border border-green-300" role="alert">
+                        Success! Your message has been sent. We'll be in touch shortly.
+                    </div>
+                    
+                    <div id="error-message" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-xl font-medium text-center border border-red-300" role="alert">
+                        An error occurred while sending your message. Please try again or call us.
+                    </div>
+                </form>
+            </div>
+        </section>
 
-    </main>
+    </main>
 
-    
-    <footer class="bg-jojo-dark text-white py-10 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-             
-            <p class="text-2xl font-extrabold mb-3">JOJO CLEANING SERVICES</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-lg mb-4">
-                
-                <a href="tel:2089977750" class="text-white hover:text-jojo-primary transition duration-300 font-medium">
-                    (208) 997-7750
-                </a>
-                <span class="text-gray-400 hidden sm:inline">|</span>
-                
-                <a href="mailto:contactjojocleaning@gmail.com" class="text-white hover:text-jojo-primary transition duration-300 font-medium">
-                    contactjojocleaning@gmail.com
-                </a>
-            </div>
-            
-            
-            <p class="text-sm font-light">
-                &copy; <span id="current-year">2025</span> JOJO CLEANING AND SANITATION LLC. All rights reserved.
-            </p>
-            <p class="text-sm font-light mt-1">Serving Boise, ID and surrounding areas. | <span class="font-semibold">Licensed & Insured</span></p>
-        </div>
-    </footer>
+    
+    <footer class="bg-jojo-dark text-white py-10 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+             
+            <p class="text-2xl font-extrabold mb-3">JOJO CLEANING SERVICES</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-lg mb-4">
+                
+                <a href="tel:2089977750" class="text-white hover:text-jojo-primary transition duration-300 font-medium">
+                    (208) 997-7750
+                </a>
+                <span class="text-gray-400 hidden sm:inline">|</span>
+                
+                <a href="mailto:contactjojocleaning@gmail.com" class="text-white hover:text-jojo-primary transition duration-300 font-medium">
+                    contactjojocleaning@gmail.com
+                </a>
+            </div>
+            
+            
+            <p class="text-sm font-light">
+                &copy; <span id="current-year">2025</span> JOJO CLEANING AND SANITATION LLC. All rights reserved.
+            </p>
+            <p class="text-sm font-light mt-1">Serving Boise, ID and surrounding areas. | <span class="font-semibold">Licensed & Insured</span></p>
+        </div>
+    </footer>
 
-    
-    <script>
-        // *** CONFIGURATION: REPLACE THIS URL with your Pipedream HTTP source URL ***
-        const PIPEDREAM_ENDPOINT = "https://eowtvnsohadwb4t.m.pipedream.net"; 
+    
+    <script>
+        // *** CONFIGURATION: REPLACE THIS URL with your Pipedream HTTP source URL ***
+        const PIPEDREAM_ENDPOINT = "https://eowtvnsohadwb4t.m.pipedream.net"; 
 
-        const form = document.getElementById('contact-form');
-        const submitButton = document.getElementById('submit-button');
-        const successMessage = document.getElementById('success-message');
-        const errorMessage = document.getElementById('error-message');
+        const form = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
 
-        // Helper function to show/hide messages
-        function showMessage(element, isError = false) {
-            successMessage.classList.add('hidden');
-            errorMessage.classList.add('hidden');
-            element.classList.remove('hidden');
-            
-            if (!isError) {
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    element.classList.add('hidden');
-                }, 5000);
-            }
-        }
+        // Helper function to show/hide messages
+        function showMessage(element, isError = false) {
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            element.classList.remove('hidden');
+            
+            if (!isError) {
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    element.classList.add('hidden');
+                }, 5000);
+            }
+        }
 
-        // Function to handle the form submission using Pipedream
-        async function handleFormSubmission(event) {
-            event.preventDefault(); 
-            
-            // Clear previous messages
-            successMessage.classList.add('hidden');
-            errorMessage.classList.add('hidden');
+        // Function to handle the form submission using Pipedream
+        async function handleFormSubmission(event) {
+            event.preventDefault(); 
+            
+            // Clear previous messages
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
 
-            const originalText = submitButton.textContent;
-            
-            // Show loading state
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
+            const originalText = submitButton.textContent;
+            
+            // Show loading state
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
 
-            try {
-                // 1. Gather form data
-                const formData = new FormData(form);
-                const data = {};
-                for (let [key, value] of formData.entries()) {
-                    data[key] = value;
-                }
-                
-                // 2. Send data to Pipedream endpoint
-                const response = await fetch(PIPEDREAM_ENDPOINT, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
+            try {
+                // 1. Gather form data
+                const formData = new FormData(form);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                
+                // 2. Send data to Pipedream endpoint
+                const response = await fetch(PIPEDREAM_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
 
-                // 3. Handle response
-                if (response.ok) {
-                    showMessage(successMessage);
-                    form.reset();
-                } else {
-                    // Log error details for debugging
-                    console.error('Pipedream submission failed with status:', response.status);
-                    console.error('Response text:', await response.text());
-                    showMessage(errorMessage, true);
-                }
+                // 3. Handle response
+                if (response.ok) {
+                    showMessage(successMessage);
+                    form.reset();
+                } else {
+                    // Log error details for debugging
+                    console.error('Pipedream submission failed with status:', response.status);
+                    console.error('Response text:', await response.text());
+                    showMessage(errorMessage, true);
+                }
 
-            } catch (error) {
-                console.error('Network or fetch error:', error);
-                showMessage(errorMessage, true);
-            } finally {
-                // Reset button state
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }
-        }
+            } catch (error) {
+                console.error('Network or fetch error:', error);
+                showMessage(errorMessage, true);
+            } finally {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
+        }
 
-        // Script for mobile menu toggle
-        document.getElementById('menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
+        // Script for mobile menu toggle
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
 
-        // Hide mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
+        // Hide mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
 
-        // JavaScript function to automatically update the copyright year
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentYearSpan = document.getElementById('current-year');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-        });
-    </script>
+        // JavaScript function to automatically update the copyright year
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
 </body>
 </html>
