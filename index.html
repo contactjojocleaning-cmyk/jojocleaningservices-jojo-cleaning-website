@@ -6,7 +6,7 @@
     
     <title>JOJO Cleaning Services | The Full Cleaning Experience</title> 
     
-    <!-- FAVICON / TAB LOGO: Using the confirmed file ID for image_66718f.png -->
+    <!-- CRITICAL: FAVICON / TAB LOGO - Using the full, verified file path -->
     <link rel="icon" type="image/png" href="/uploaded:image_66718f.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,16 +43,13 @@
             background-color: var(--tw-colors-jojo-soft);
         }
         
-        /* 1. Header Freeze (Sticky Bar): Ensure high Z-index for visibility over scrolling content */
         .header-fixed {
             z-index: 100; 
-            background-color: white; /* Ensures it is opaque when scrolling */
+            background-color: white; 
         }
         
-        /* 2. Mobile Menu Visibility: Ensures the menu appears right below the sticky header */
         .mobile-menu-fixed {
             z-index: 90; 
-            /* Relative position is correct as it follows the sticky header's flow when opened */
         }
     </style>
 </head>
@@ -65,12 +62,13 @@
             
             <div class="flex items-center space-x-3">
                 
-                <!-- MAIN LOGO: Correctly sized and using the file path for image_66718f.png -->
-                <div class="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0">
+                <!-- MAIN LOGO: Checking size constraints and using the verified file path -->
+                <!-- The container below is explicitly sized (h-12 w-12) and has a border/background for visibility debug -->
+                <div class="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-gray-100 rounded-lg bg-gray-50 p-1">
                     <img src="/uploaded:image_66718f.png-cf75ff0a-6fe6-4b5f-9b6f-58e596e5ea3c?v=4" 
                          alt="JOJO Cleaning Logo" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/48x48/F472B6/FFFFFF?text=JO'"
-                         class="w-full h-full object-contain">
+                         onerror="this.onerror=null; this.src='https://placehold.co/48x48/F472B6/FFFFFF?text=JO';"
+                         class="max-w-full max-h-full object-contain">
                 </div>
                 
                 <span class="text-xl sm:text-3xl font-extrabold text-jojo-dark tracking-tight">JOJO CLEANING SERVICES</span>
