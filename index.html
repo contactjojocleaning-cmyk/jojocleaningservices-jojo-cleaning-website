@@ -8,10 +8,10 @@
     
     <link rel="icon" type="image/png" href="image_66718f.png">
     
-    <!-- FIX: PRELOAD HINT ADDED for faster loading of the critical logo -->
+    <!-- PERFORMANCE FIX: PRELOAD HINT for faster loading of the critical logo -->
     <link rel="preload" as="image" href="image_66718f.png">
     
-    <!-- *** RECOMMENDATION 1: Import Google Font 'Inter' *** -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -47,23 +47,31 @@
             box-shadow: 0 25px 35px -5px rgba(219, 39, 119, 0.2), 0 10px 10px -5px rgba(219, 39, 119, 0.1);
         }
         
-        /* *** RECOMMENDATION 2: Removed redundant CSS *** */
-        /* .header-fixed and .mobile-menu-fixed were removed. */
-        /* We can rely on Tailwind's z-index and sticky classes directly */
-        /* for simpler code. */
+        /* NEW: Custom high-contrast focus styles for accessibility (A11y) */
+        /* This ensures keyboard users can easily see what element is selected. */
+        :focus-visible {
+            outline: 3px solid #DB2777 !important; /* Uses jojo-dark color */
+            outline-offset: 2px !important;
+            border-radius: 0.5rem; /* Apply rounded corners to the focus ring */
+        }
+        
+        /* Remove outline for non-keyboard interaction to prevent double-outlines */
+        :focus:not(:focus-visible) {
+            outline: none;
+        }
 
     </style>
 </head>
 <body class="bg-jojo-soft font-sans text-jojo-text">
 
     
-    <!-- *** RECOMMENDATION 2 (continued): Using z-30 directly *** -->
-    <header class="bg-jojo-light shadow-lg sticky top-0 z-30">
+    <!-- NEW: Added id="site-header" for JavaScript scroll effect -->
+    <header id="site-header" class="bg-jojo-light shadow-md sticky top-0 z-30 transition-all duration-300">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center">
             
             <div class="flex items-center space-x-3">
                 
-                <!-- FIX: Removed 'hidden sm:inline-block' so the logo shows on mobile -->
+                <!-- Logo Image -->
                 <img src="image_66718f.png" 
                      alt="JOJO Cleaning Logo" 
                      class="h-16 w-16 object-contain inline-block">
@@ -103,9 +111,6 @@
     </header>
 
     
-    <!-- *** RECOMMENDATION 3: Improved Mobile Menu *** -->
-    <!-- This is now a "fixed" overlay. It's a more standard, professional UX. -->
-    <!-- It covers the screen and won't scroll away like the old one. -->
     <div id="mobile-menu" class="lg:hidden hidden bg-jojo-light shadow-xl p-4 space-y-6 text-center fixed inset-0 z-50 flex flex-col justify-center">
         <!-- Added a close button for the new overlay menu -->
         <button id="menu-close-button" class="text-jojo-text hover:text-jojo-primary focus:outline-none p-2 rounded-full transition duration-300 active:bg-jojo-soft absolute top-7 right-5">
@@ -173,9 +178,6 @@
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-jojo-dark">Our Full Spectrum of Cleaning Solutions</h2>
             
             
-            <!-- *** RECOMMENDATION 4: Smarter Responsive Grid *** -->
-            <!-- Changed "md:grid-cols-2" to "md:grid-cols-3" -->
-            <!-- This avoids the awkward "hanging" card on tablet sizes. -->
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
                 
@@ -394,6 +396,7 @@
         const submitButton = document.getElementById('submit-button');
         const successMessage = document.getElementById('success-message');
         const errorMessage = document.getElementById('error-message');
+        const header = document.getElementById('site-header');
 
         // Helper function to show/hide messages
         function showMessage(element, isError = false) {
@@ -461,14 +464,14 @@
             }
         }
 
-        // *** RECOMMENDATION 3 (continued): Updated Mobile Menu JS ***
+        // Mobile Menu Logic
         const menuButton = document.getElementById('menu-button');
         const closeButton = document.getElementById('menu-close-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
         function toggleMenu() {
             mobileMenu.classList.toggle('hidden');
-            // Optional: Prevent body scrolling when menu is open
+            // Prevent body scrolling when menu is open
             if (!mobileMenu.classList.contains('hidden')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -488,7 +491,20 @@
             });
         });
 
-        // JavaScript function to automatically update the copyright year
+        // NEW: Function to add/remove shadow on the sticky header based on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                // Add stronger shadow and border when scrolled
+                header.classList.add('shadow-xl', 'border-b', 'border-jojo-soft');
+                header.classList.remove('shadow-md');
+            } else {
+                // Restore lighter shadow at the very top of the page
+                header.classList.remove('shadow-xl', 'border-b', 'border-jojo-soft');
+                header.classList.add('shadow-md');
+            }
+        });
+
+        // JavaScript function to automatically update the copyright year and attach listeners
         document.addEventListener('DOMContentLoaded', () => {
             const currentYearSpan = document.getElementById('current-year');
             if (currentYearSpan) {
